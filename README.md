@@ -1,5 +1,9 @@
 # DFL
 
+[![Spec](https://github.com/D-Shwagginz/dfl/actions/workflows/spec.yml/badge.svg)](https://github.com/D-Shwagginz/dfl/actions/workflows/spec.yml)
+
+[![Static Badge](https://img.shields.io/badge/Check%20The-Docs-blue)](https://d-shwagginz.github.io/dfl/)
+
 A library to help read and write .dfl (D. File) and .dex (D. Export) files
 
 ## Installation
