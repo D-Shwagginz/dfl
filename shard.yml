@@ -7,6 +7,8 @@ authors:
 targets:
   dfl:
     main: src/D_File.cr
+  write:
+    main: src/write.cr
 
 dependencies:
   raylib-cr:
