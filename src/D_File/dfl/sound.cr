@@ -1,20 +1,17 @@
 class DFL
-  # A sound in a dfl
+  # A `DFL::Head`'s sound data
   class Sound
+    # The number of channels in the dfl sound
     CHANNELS = 1_u16
+
+    # The sample rate of the sound
     property sample_rate : UInt32 = 0_u32
+    # The number of samples in the sound
     property samples_num : UInt32 = 0_u32
+    # The number of bits per each sample
     property bits_per_sample : UInt16 = 0_u16
+    # The samples
     property samples : Array(UInt8 | UInt16) = [] of UInt8 | UInt16
-
-    # Parses a dfl sound given the file path
-    def self.read(filename : String | Path) : Sound
-      File.open(filename) do |io|
-        return parse(io)
-      end
-
-      raise "Sound invalid"
-    end
 
     # Reads in a dfl sound given the io
     def self.read(io : IO) : Sound
