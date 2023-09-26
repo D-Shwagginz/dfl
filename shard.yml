@@ -1,0 +1,17 @@
+name: dfl
+version: 0.1.0
+
+authors:
+  - D. Shwagginz <dshwagbusiness@gmail.com>
+
+targets:
+  dfl:
+    main: src/D_File.cr
+
+dependencies:
+  raylib-cr:
+    github: sol-vin/raylib-cr
+
+crystal: 1.9.2
+
+license: MIT
