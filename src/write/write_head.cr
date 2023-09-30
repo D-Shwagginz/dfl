@@ -5,7 +5,7 @@ module WritingMethods
       # Writes out the head given the filename
       # ```
       # head = DFL::Head.new
-      # head.write("Path/To/MyHead.dex")
+      # head.write("Path/To/MyHead.dpo")
       # ```
       def write(filename : String | Path)
         File.open(filename, "w+") do |io|

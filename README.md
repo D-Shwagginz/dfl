@@ -4,7 +4,7 @@
 
 [![Static Badge](https://img.shields.io/badge/Check%20The-Docs-blue)](https://d-shwagginz.github.io/dfl/)
 
-A library to help read and write .dfl (D. File) and .dex (D. Export) files
+A library to help read and write .dfl (D. File) and .dpo (D. Portion) files
 
 ## Installation
 
@@ -17,10 +17,7 @@ dependencies:
 
 2. Run `shards install`
 
-### Raylib Methods
-
-To use the wa-cr's [Raylib](https://github.com/raysan5/raylib/releases)
-additions, you must have [Raylib](https://github.com/raysan5/raylib/releases) installed:
+3. Some methods won't work unless you have [Raylib](https://github.com/raysan5/raylib/releases) installed:
 
 - Install raylib by following the raylib-cr [installation instructions](https://github.com/sol-vin/raylib-cr#installation).
   - For Linux, follow step 1.

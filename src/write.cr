@@ -1,6 +1,6 @@
 require "./write/**"
 
-# Methods for writing DFL and DEX data
+# Methods for writing DFL and dpo data
 module WritingMethods
   # The main class for working with .dfl files
   module DFL
@@ -23,7 +23,7 @@ module WritingMethods
     # end
     # ```
     def write(io : IO)
-      io.print("DFL")
+      io.print(".DFL")
 
       data_num = empty.size + sounds.size
 
@@ -54,4 +54,8 @@ end
 
 class DFL::Sound
   include WritingMethods::DFL::Sound
+end
+
+class DFL::Graphic
+  include WritingMethods::DFL::Graphic
 end
