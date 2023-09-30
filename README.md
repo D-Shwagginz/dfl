@@ -1,6 +1,6 @@
 # DFL
 
-A library to help read and write .dfl (D. File) and .dex (D. Export) files
+A library to help read and write .dfl (D. File) and .dpo (D. Export) files
 
 ## Installation
 

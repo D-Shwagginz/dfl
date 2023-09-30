@@ -2,17 +2,6 @@ module WritingMethods
   module DFL
     # A `DFL::Head`'s sound data
     module Sound
-      # Writes out the sound given the filename
-      # ```
-      # sound = DFL::Head.new_sound
-      # sound.write("Path/To/MySound.dex")
-      # ```
-      def write(filename : String | Path)
-        File.open(filename, "w+") do |io|
-          write(io)
-        end
-      end
-
       # Writes out the sound given the io
       def write(io : IO)
         io.write_bytes(sample_rate.to_u32, IO::ByteFormat::LittleEndian)

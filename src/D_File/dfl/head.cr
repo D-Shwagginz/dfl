@@ -12,7 +12,7 @@ class DFL
 
     # Reads in a head given the filepath
     # ```
-    # head = DFL::Head.read("Path/To/MyHead.dex")
+    # head = DFL::Head.read("Path/To/MyHead.dpo")
     # ```
     def self.read(filename : String | Path)
       File.open(filename) do |io|
@@ -31,6 +31,8 @@ class DFL
       case head.type
       when HeadType::Sound
         head.data = Sound.read(io)
+      when HeadType::Graphic
+        head.data = Graphic.read(io)
       end
 
       head
@@ -47,6 +49,24 @@ class DFL
         head.data = Sound.from_wav(wav)
       else
         head.data = Sound.new
+      end
+
+      head
+    end
+
+    # Creats a new graphic head
+    def self.new_graphic(name : String = "NewGraphic", *, png : String | Path | Nil = nil) : Head
+      head = Head.new
+      head.type = HeadType::Graphic
+      head.name_length = name.size.to_u8
+      head.name = name
+
+      if png
+        image = Raylib.load_image(png)
+        head.data = Graphic.from_image(image)
+        Raylib.unload_image(image)
+      else
+        head.data = Graphic.new
       end
 
       head

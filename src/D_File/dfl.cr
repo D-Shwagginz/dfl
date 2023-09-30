@@ -3,14 +3,16 @@ class DFL
   property data_num : UInt32 = 0_u32
   property empty : Array(Head) = [] of Head
   property sounds : Array(Head) = [] of Head
+  property graphics : Array(Head) = [] of Head
 
   # The types that a `DFL::Head`'s data could be
-  alias DataTypes = Empty | Sound
+  alias DataTypes = Empty | Sound | Graphic
 
   # The type of a `DFL::Head`
   enum HeadType
     Empty
     Sound
+    Graphic
   end
 
   # Adds a `DFL::Head` to the dfl
@@ -20,6 +22,8 @@ class DFL
       empty << head
     when HeadType::Sound
       sounds << head
+    when HeadType::Graphic
+      graphics << head
     end
   end
 
@@ -37,7 +41,7 @@ class DFL
   def self.read(io : IO) : DFL
     dfl = DFL.new
 
-    raise "Invalid DFL file" if io.gets(3) != "DFL"
+    raise "Invalid DFL file" if io.gets(4) != ".DFL"
 
     dfl.data_num = io.read_bytes(UInt32, IO::ByteFormat::LittleEndian)
 
@@ -49,6 +53,8 @@ class DFL
         dfl.empty << head
       when HeadType::Sound
         dfl.sounds << head
+      when HeadType::Graphic
+        dfl.graphics << head
       end
     end
 
