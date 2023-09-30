@@ -1,6 +1,6 @@
 # The main class for working with .dfl files
 class DFL
-  property data_num : UInt32 = 0_u32
+  property portions : UInt32 = 0_u32
   property empty : Array(Head) = [] of Head
   property sounds : Array(Head) = [] of Head
   property graphics : Array(Head) = [] of Head
@@ -43,9 +43,9 @@ class DFL
 
     raise "Invalid DFL file" if io.gets(4) != ".DFL"
 
-    dfl.data_num = io.read_bytes(UInt32, IO::ByteFormat::LittleEndian)
+    dfl.portions = io.read_bytes(UInt32, IO::ByteFormat::LittleEndian)
 
-    dfl.data_num.times do
+    dfl.portions.times do
       head = Head.read(io)
 
       case head.type

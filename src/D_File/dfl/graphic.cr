@@ -14,8 +14,8 @@ class DFL
       graphic.width = io.read_bytes(UInt32, IO::ByteFormat::LittleEndian)
       graphic.height = io.read_bytes(UInt32, IO::ByteFormat::LittleEndian)
 
-      palette_byte_size = io.read_bytes(UInt8, IO::ByteFormat::LittleEndian)
-      case palette_byte_size
+      color_byte_size = io.read_bytes(UInt8, IO::ByteFormat::LittleEndian)
+      case color_byte_size
       when 8
         colors_size = io.read_bytes(UInt64, IO::ByteFormat::LittleEndian)
       when 4
@@ -55,7 +55,7 @@ class DFL
 
           if same_color_len
             if has_data
-              case palette_byte_size
+              case color_byte_size
               when 8
                 color_index = io.read_bytes(UInt64, IO::ByteFormat::LittleEndian)
               when 4
