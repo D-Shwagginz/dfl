@@ -1,8 +1,12 @@
 # The main class for working with .dfl files
 class DFL
+  # The number of portions in the dfl
   property portions : UInt32 = 0_u32
+  # The array of heads with empty data type
   property empty : Array(Head) = [] of Head
+  # The array of heads with sound data type
   property sounds : Array(Head) = [] of Head
+  # The array of heads with graphic data type
   property graphics : Array(Head) = [] of Head
 
   # The types that a `DFL::Head`'s data could be
