@@ -2,7 +2,7 @@ class DFL
   # A `DFL::Head`'s palette data
   class Palette
     # The colors of the palette
-    property colors = [] of Raylub::Color
+    property colors : Array(Raylib::Color) = [] of Raylib::Color
 
     # Reads in a dfl palette given the io
     def self.read(io : IO) : Palette
