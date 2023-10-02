@@ -10,7 +10,7 @@ module WritingMethods
         colors = [] of Raylib::Color
 
         data.each do |color|
-          if color && ! colors.find { |match| match == color}
+          if color && !colors.find { |match| match == color }
             colors << color
           end
         end
@@ -32,7 +32,7 @@ module WritingMethods
           io.write_bytes(palette_byte_size.to_u8, IO::ByteFormat::LittleEndian)
           io.write_bytes(colors.size.to_u8, IO::ByteFormat::LittleEndian)
         end
-        
+
         colors.each do |color|
           io.write_bytes(color.r.to_u8, IO::ByteFormat::LittleEndian)
           io.write_bytes(color.g.to_u8, IO::ByteFormat::LittleEndian)
