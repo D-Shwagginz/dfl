@@ -37,6 +37,7 @@ class DFL
 
       head
     end
+  end
 
   # Empty `DFL::Head` data
   struct Empty
