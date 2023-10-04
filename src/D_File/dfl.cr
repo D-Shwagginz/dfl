@@ -8,15 +8,21 @@ class DFL
   property sounds : Array(Head) = [] of Head
   # The array of heads with graphic data type
   property graphics : Array(Head) = [] of Head
+  # The universal palette for palette graphics
+  property palette : Head = Head.new
+  # The array of heads with palgraphic data type
+  property palgraphics : Array(Head) = [] of Head
 
   # The types that a `DFL::Head`'s data could be
-  alias DataTypes = Empty | Sound | Graphic
+  alias DataTypes = Empty | Sound | Graphic | Palette | PalGraphic
 
   # The type of a `DFL::Head`
   enum HeadType
     Empty
     Sound
     Graphic
+    Palette
+    PalGraphic
   end
 
   # Adds a `DFL::Head` to the dfl
@@ -28,6 +34,10 @@ class DFL
       sounds << head
     when HeadType::Graphic
       graphics << head
+    when HeadType::Palette
+      palette = head
+    when HeadType::PalGraphic
+      palgraphics << head
     end
   end
 
@@ -59,6 +69,10 @@ class DFL
         dfl.sounds << head
       when HeadType::Graphic
         dfl.graphics << head
+      when HeadType::Palette
+        dfl.palette = head
+      when HeadType::PalGraphic
+        dfl.palgraphics << head
       end
     end
 

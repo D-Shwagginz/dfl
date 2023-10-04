@@ -36,6 +36,16 @@ module WritingMethods
       sounds.each do |head|
         head.write(io)
       end
+
+      graphics.each do |head|
+        head.write(io)
+      end
+
+      palette.write(io)
+
+      palgraphics.each do |head|
+        head.write(io)
+      end
     end
   end
 end
@@ -58,4 +68,12 @@ end
 
 class DFL::Graphic
   include WritingMethods::DFL::Graphic
+end
+
+class DFL::Palette
+  include WritingMethods::DFL::Palette
+end
+
+class DFL::PalGraphic
+  include WritingMethods::DFL::PalGraphic
 end

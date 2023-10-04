@@ -1,43 +1,31 @@
 module WritingMethods
   module DFL
-    # A `DFL::Head`'s graphic data
-    module Graphic
-      # Writes out the graphic given the io
+    # A `DFL::Head`'s palgraphic data
+    module PalGraphic
+      # Writes out the palgraphic given the io
       def write(io : IO)
         io.write_bytes(width.to_u32, IO::ByteFormat::LittleEndian)
         io.write_bytes(height.to_u32, IO::ByteFormat::LittleEndian)
 
-        colors = [] of ::DFL::Color
+        current_biggest_index = 0
 
-        data.each do |color|
-          if color && !colors.find { |match| match == color }
-            colors << color
+        data.each do |index|
+          if index
+            current_biggest_index = index if index > current_biggest_index
           end
         end
 
-        if colors.size > UInt32::MAX
-          palette_byte_size = 8
-          io.write_bytes(palette_byte_size.to_u8, IO::ByteFormat::LittleEndian)
-          io.write_bytes(colors.size.to_u64, IO::ByteFormat::LittleEndian)
-        elsif colors.size > UInt16::MAX
-          palette_byte_size = 4
-          io.write_bytes(palette_byte_size.to_u8, IO::ByteFormat::LittleEndian)
-          io.write_bytes(colors.size.to_u32, IO::ByteFormat::LittleEndian)
-        elsif colors.size > UInt8::MAX
-          palette_byte_size = 2
-          io.write_bytes(palette_byte_size.to_u8, IO::ByteFormat::LittleEndian)
-          io.write_bytes(colors.size.to_u16, IO::ByteFormat::LittleEndian)
+        if current_biggest_index > UInt32::MAX
+          color_byte_size = 8
+        elsif current_biggest_index > UInt16::MAX
+          color_byte_size = 4
+        elsif current_biggest_index > UInt8::MAX
+          color_byte_size = 2
         else
-          palette_byte_size = 1
-          io.write_bytes(palette_byte_size.to_u8, IO::ByteFormat::LittleEndian)
-          io.write_bytes(colors.size.to_u8, IO::ByteFormat::LittleEndian)
+          color_byte_size = 1
         end
 
-        colors.each do |color|
-          io.write_bytes(color.r.to_u8, IO::ByteFormat::LittleEndian)
-          io.write_bytes(color.g.to_u8, IO::ByteFormat::LittleEndian)
-          io.write_bytes(color.b.to_u8, IO::ByteFormat::LittleEndian)
-        end
+        io.write_bytes(color_byte_size.to_u8, IO::ByteFormat::LittleEndian)
 
         current_pixel = 0
 
@@ -69,20 +57,15 @@ module WritingMethods
               io.write_bytes(same_color_len.to_u8, IO::ByteFormat::LittleEndian)
             end
 
-            color_index = 0
-
-            colors.each_with_index do |match, i|
-              color_index = i if match.r == color.r && match.g == color.g && match.b == color.b
-            end
-
-            if colors.size > UInt32::MAX
-              io.write_bytes(color_index.to_u64, IO::ByteFormat::LittleEndian)
-            elsif colors.size > UInt16::MAX
-              io.write_bytes(color_index.to_u32, IO::ByteFormat::LittleEndian)
-            elsif colors.size > UInt8::MAX
-              io.write_bytes(color_index.to_u16, IO::ByteFormat::LittleEndian)
-            else
-              io.write_bytes(color_index.to_u8, IO::ByteFormat::LittleEndian)
+            case color_byte_size
+            when 8
+              io.write_bytes(color.to_u64, IO::ByteFormat::LittleEndian)
+            when 4
+              io.write_bytes(color.to_u32, IO::ByteFormat::LittleEndian)
+            when 2
+              io.write_bytes(color.to_u16, IO::ByteFormat::LittleEndian)
+            when 1
+              io.write_bytes(color.to_u8, IO::ByteFormat::LittleEndian)
             end
           else
             data[current_pixel..].each_with_index do |same_color, index|
