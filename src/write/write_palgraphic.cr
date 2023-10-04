@@ -10,7 +10,9 @@ module WritingMethods
         current_biggest_index = 0
 
         data.each do |index|
-          current_biggest_index = index if index > current_biggest
+          if index
+            current_biggest_index = index if index > current_biggest_index
+          end
         end
 
         if current_biggest_index > UInt32::MAX
@@ -55,21 +57,15 @@ module WritingMethods
               io.write_bytes(same_color_len.to_u8, IO::ByteFormat::LittleEndian)
             end
 
-            color_index = 0
-
-            colors.each_with_index do |match, i|
-              color_index = i if match.r == color.r && match.g == color.g && match.b == color.b
-            end
-
             case color_byte_size
             when 8
-              io.write_bytes(color_index.to_u64, IO::ByteFormat::LittleEndian)
+              io.write_bytes(color.to_u64, IO::ByteFormat::LittleEndian)
             when 4
-              io.write_bytes(color_index.to_u32, IO::ByteFormat::LittleEndian)
+              io.write_bytes(color.to_u32, IO::ByteFormat::LittleEndian)
             when 2
-              io.write_bytes(color_index.to_u16, IO::ByteFormat::LittleEndian)
+              io.write_bytes(color.to_u16, IO::ByteFormat::LittleEndian)
             when 1
-              io.write_bytes(color_index.to_u8, IO::ByteFormat::LittleEndian)
+              io.write_bytes(color.to_u8, IO::ByteFormat::LittleEndian)
             end
           else
             data[current_pixel..].each_with_index do |same_color, index|

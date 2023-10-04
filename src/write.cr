@@ -41,7 +41,7 @@ module WritingMethods
         head.write(io)
       end
 
-      palette.write(head)
+      palette.write(io)
 
       palgraphics.each do |head|
         head.write(io)
