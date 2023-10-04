@@ -1,4 +1,25 @@
 class DFL
+  # A color
+  struct Color
+    property r : UInt8 = 0_u8
+    property g : UInt8 = 0_u8
+    property b : UInt8 = 0_u8
+
+    def initialize(r : UInt8 = 0, g : UInt8 = 0, b : UInt8 = 0)
+      @r = r
+      @g = g
+      @b = b
+    end
+
+    def self.from_raylib(color : Raylib::Color) : Color
+      Color.new(r: color.r, g: color.g, b: color.b)
+    end
+
+    def to_raylib : Raylib::Color
+      Raylib::Color.new(r: r, g: g, b: b, a: 255)
+    end
+  end
+
   # A `DFL::Head`'s graphic data
   class Graphic
     # The width of the image
@@ -6,9 +27,9 @@ class DFL
     # The height of the image
     property height : UInt32 = 0_u32
     # The image data
-    property data : Array(Raylib::Color | Nil) = [] of Raylib::Color | Nil
+    property data : Array(Color | Nil) = [] of Color | Nil
 
-    # Reads in a dfl grpahic given the io
+    # Reads in a dfl graphic given the io
     def self.read(io : IO) : Graphic
       graphic = Graphic.new
       graphic.width = io.read_bytes(UInt32, IO::ByteFormat::LittleEndian)
@@ -26,15 +47,14 @@ class DFL
         colors_size = io.read_bytes(UInt8, IO::ByteFormat::LittleEndian)
       end
 
-      colors = [] of Raylib::Color
+      colors = [] of Color
 
       if colors_size
         colors_size.times do
-          color = Raylib::Color.new
+          color = Color.new
           color.r = io.read_bytes(UInt8, IO::ByteFormat::LittleEndian)
           color.g = io.read_bytes(UInt8, IO::ByteFormat::LittleEndian)
           color.b = io.read_bytes(UInt8, IO::ByteFormat::LittleEndian)
-          color.a = 255
           colors << color
         end
 
@@ -90,7 +110,7 @@ class DFL
         height.times do |y|
           pixel = data[x.to_i * width.to_i + y.to_i]
           next if pixel.nil?
-          Raylib.image_draw_pixel(pointerof(image), x, y, pixel.as(Raylib::Color))
+          Raylib.image_draw_pixel(pointerof(image), x, y, pixel.as(Color).to_raylib)
         end
       end
 
@@ -109,7 +129,7 @@ class DFL
           if color.a == 0
             graphic.data << nil
           else
-            graphic.data << color
+            graphic.data << Color.from_raylib(color)
           end
         end
       end

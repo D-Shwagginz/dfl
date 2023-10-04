@@ -38,41 +38,6 @@ class DFL
       head
     end
 
-    # Creates a new sound head
-    def self.new_sound(name : String = "NewSound", *, wav : IO | String | Path | Nil = nil) : Head
-      head = Head.new
-      head.type = HeadType::Sound
-      head.name_length = name.size.to_u8
-      head.name = name
-
-      if wav
-        head.data = Sound.from_wav(wav)
-      else
-        head.data = Sound.new
-      end
-
-      head
-    end
-
-    # Creats a new graphic head
-    def self.new_graphic(name : String = "NewGraphic", *, png : String | Path | Nil = nil) : Head
-      head = Head.new
-      head.type = HeadType::Graphic
-      head.name_length = name.size.to_u8
-      head.name = name
-
-      if png
-        image = Raylib.load_image(png)
-        head.data = Graphic.from_image(image)
-        Raylib.unload_image(image)
-      else
-        head.data = Graphic.new
-      end
-
-      head
-    end
-  end
-
   # Empty `DFL::Head` data
   struct Empty
   end
