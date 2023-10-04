@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.8.2">
+<meta name="crystal_docs.project_version" content="master">
+<meta name="crystal_docs.project_name" content="dfl">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="dfl">
+  <title>DFL::Head - dfl master</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          dfl
+        </a>
+      </h1>
+
+      <span class="project-version">
+        master
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="dfl/toplevel" data-name="top level namespace">
+      <a href="../toplevel.html">Top Level Namespace</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="dfl/DFL" data-name="dfl">
+      <a href="../DFL.html">DFL</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dfl/DFL/Color" data-name="dfl::color">
+      <a href="../DFL/Color.html">Color</a>
+      
+    </li>
+  
+  <li class=" " data-id="dfl/DFL/DataTypes" data-name="dfl::datatypes">
+      <a href="../DFL/DataTypes.html">DataTypes</a>
+      
+    </li>
+  
+  <li class=" " data-id="dfl/DFL/Empty" data-name="dfl::empty">
+      <a href="../DFL/Empty.html">Empty</a>
+      
+    </li>
+  
+  <li class=" " data-id="dfl/DFL/Graphic" data-name="dfl::graphic">
+      <a href="../DFL/Graphic.html">Graphic</a>
+      
+    </li>
+  
+  <li class=" current" data-id="dfl/DFL/Head" data-name="dfl::head">
+      <a href="../DFL/Head.html">Head</a>
+      
+    </li>
+  
+  <li class=" " data-id="dfl/DFL/HeadType" data-name="dfl::headtype">
+      <a href="../DFL/HeadType.html">HeadType</a>
+      
+    </li>
+  
+  <li class=" " data-id="dfl/DFL/Palette" data-name="dfl::palette">
+      <a href="../DFL/Palette.html">Palette</a>
+      
+    </li>
+  
+  <li class=" " data-id="dfl/DFL/PalGraphic" data-name="dfl::palgraphic">
+      <a href="../DFL/PalGraphic.html">PalGraphic</a>
+      
+    </li>
+  
+  <li class=" " data-id="dfl/DFL/Sound" data-name="dfl::sound">
+      <a href="../DFL/Sound.html">Sound</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="dfl/WritingMethods" data-name="writingmethods">
+      <a href="../WritingMethods.html">WritingMethods</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="dfl/WritingMethods/DFL" data-name="writingmethods::dfl">
+      <a href="../WritingMethods/DFL.html">DFL</a>
+      
+        <ul>
+  
+  <li class=" " data-id="dfl/WritingMethods/DFL/Empty" data-name="writingmethods::dfl::empty">
+      <a href="../WritingMethods/DFL/Empty.html">Empty</a>
+      
+    </li>
+  
+  <li class=" " data-id="dfl/WritingMethods/DFL/Graphic" data-name="writingmethods::dfl::graphic">
+      <a href="../WritingMethods/DFL/Graphic.html">Graphic</a>
+      
+    </li>
+  
+  <li class=" " data-id="dfl/WritingMethods/DFL/Head" data-name="writingmethods::dfl::head">
+      <a href="../WritingMethods/DFL/Head.html">Head</a>
+      
+    </li>
+  
+  <li class=" " data-id="dfl/WritingMethods/DFL/Palette" data-name="writingmethods::dfl::palette">
+      <a href="../WritingMethods/DFL/Palette.html">Palette</a>
+      
+    </li>
+  
+  <li class=" " data-id="dfl/WritingMethods/DFL/PalGraphic" data-name="writingmethods::dfl::palgraphic">
+      <a href="../WritingMethods/DFL/PalGraphic.html">PalGraphic</a>
+      
+    </li>
+  
+  <li class=" " data-id="dfl/WritingMethods/DFL/Sound" data-name="writingmethods::dfl::sound">
+      <a href="../WritingMethods/DFL/Sound.html">Sound</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> DFL::Head
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../DFL/Head.html">DFL::Head</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>A chunk of data that holds info about data in the <code><a href="../DFL.html">DFL</a></code></p>
+
+
+
+
+
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../WritingMethods/DFL/Head.html">WritingMethods::DFL::Head</a></li>
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/D-Shwagginz/dfl/blob/854276e25f4c0c754b1aaf5546a8d10afb03b81f/src/D_File/dfl/head.cr#L3" target="_blank">
+        D_File/dfl/head.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/D-Shwagginz/dfl/blob/854276e25f4c0c754b1aaf5546a8d10afb03b81f/src/write.cr#L57" target="_blank">
+        write.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#read%28io%3AIO%29%3AHead-class-method" class="signature"><strong>.read</strong>(io : IO) : Head</a>
+        
+          <div class="summary"><p>Reads in a head given the io</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#read%28filename%3AString%7CPath%29-class-method" class="signature"><strong>.read</strong>(filename : String | Path)</a>
+        
+          <div class="summary"><p>Reads in a head given the filepath <code>head = <a href="../DFL/Head.html#read%28filename%3AString%7CPath%29-class-method">DFL::Head.read(&quot;Path/To/MyHead.dpo&quot;)</a></code></p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#data%3ADataTypes-instance-method" class="signature"><strong>#data</strong> : DataTypes</a>
+        
+          <div class="summary"><p>The head's data</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#data%3D%28data%3ADataTypes%29-instance-method" class="signature"><strong>#data=</strong>(data : DataTypes)</a>
+        
+          <div class="summary"><p>The head's data</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#name%3AString-instance-method" class="signature"><strong>#name</strong> : String</a>
+        
+          <div class="summary"><p>The name</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#name%3D%28name%3AString%29-instance-method" class="signature"><strong>#name=</strong>(name : String)</a>
+        
+          <div class="summary"><p>The name</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#name_length%3AUInt8-instance-method" class="signature"><strong>#name_length</strong> : UInt8</a>
+        
+          <div class="summary"><p>The length of the name</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#name_length%3D%28name_length%3AUInt8%29-instance-method" class="signature"><strong>#name_length=</strong>(name_length : UInt8)</a>
+        
+          <div class="summary"><p>The length of the name</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#type%3AHeadType-instance-method" class="signature"><strong>#type</strong> : HeadType</a>
+        
+          <div class="summary"><p>The type of the head</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#type%3D%28type%3AHeadType%29-instance-method" class="signature"><strong>#type=</strong>(type : HeadType)</a>
+        
+          <div class="summary"><p>The type of the head</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+  <h3>Instance methods inherited from module <code><a href="../WritingMethods/DFL/Head.html">WritingMethods::DFL::Head</a></code></h3>
+  
+  
+    <a href="../WritingMethods/DFL/Head.html#write%28filename%3AString%7CPath%29-instance-method" class="tooltip">
+      <span>write(filename : String | Path)<br/>write(io : IO)</span>
+    write</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="read(io:IO):Head-class-method">
+      <div class="signature">
+        
+        def self.<strong>read</strong>(io : IO) : <a href="../DFL/Head.html">Head</a>
+
+        <a class="method-permalink" href="#read%28io%3AIO%29%3AHead-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Reads in a head given the io</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/D-Shwagginz/dfl/blob/854276e25f4c0c754b1aaf5546a8d10afb03b81f/src/D_File/dfl/head.cr#L24" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="read(filename:String|Path)-class-method">
+      <div class="signature">
+        
+        def self.<strong>read</strong>(filename : String | Path)
+
+        <a class="method-permalink" href="#read%28filename%3AString%7CPath%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Reads in a head given the filepath</p>
+<pre><code class="language-crystal">head <span class="o">=</span> <span class="t">DFL</span><span class="t">::</span><span class="t">Head</span>.read(<span class="s">&quot;Path/To/MyHead.dpo&quot;</span>)</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/D-Shwagginz/dfl/blob/854276e25f4c0c754b1aaf5546a8d10afb03b81f/src/D_File/dfl/head.cr#L17" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="data:DataTypes-instance-method">
+      <div class="signature">
+        
+        def <strong>data</strong> : <a href="../DFL/DataTypes.html">DataTypes</a>
+
+        <a class="method-permalink" href="#data%3ADataTypes-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The head's data</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/D-Shwagginz/dfl/blob/854276e25f4c0c754b1aaf5546a8d10afb03b81f/src/D_File/dfl/head.cr#L11" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="data=(data:DataTypes)-instance-method">
+      <div class="signature">
+        
+        def <strong>data=</strong>(data : <a href="../DFL/DataTypes.html">DataTypes</a>)
+
+        <a class="method-permalink" href="#data%3D%28data%3ADataTypes%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The head's data</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/D-Shwagginz/dfl/blob/854276e25f4c0c754b1aaf5546a8d10afb03b81f/src/D_File/dfl/head.cr#L11" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="name:String-instance-method">
+      <div class="signature">
+        
+        def <strong>name</strong> : String
+
+        <a class="method-permalink" href="#name%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The name</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/D-Shwagginz/dfl/blob/854276e25f4c0c754b1aaf5546a8d10afb03b81f/src/D_File/dfl/head.cr#L9" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="name=(name:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>name=</strong>(name : String)
+
+        <a class="method-permalink" href="#name%3D%28name%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The name</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/D-Shwagginz/dfl/blob/854276e25f4c0c754b1aaf5546a8d10afb03b81f/src/D_File/dfl/head.cr#L9" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="name_length:UInt8-instance-method">
+      <div class="signature">
+        
+        def <strong>name_length</strong> : UInt8
+
+        <a class="method-permalink" href="#name_length%3AUInt8-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The length of the name</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/D-Shwagginz/dfl/blob/854276e25f4c0c754b1aaf5546a8d10afb03b81f/src/D_File/dfl/head.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="name_length=(name_length:UInt8)-instance-method">
+      <div class="signature">
+        
+        def <strong>name_length=</strong>(name_length : UInt8)
+
+        <a class="method-permalink" href="#name_length%3D%28name_length%3AUInt8%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The length of the name</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/D-Shwagginz/dfl/blob/854276e25f4c0c754b1aaf5546a8d10afb03b81f/src/D_File/dfl/head.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="type:HeadType-instance-method">
+      <div class="signature">
+        
+        def <strong>type</strong> : <a href="../DFL/HeadType.html">HeadType</a>
+
+        <a class="method-permalink" href="#type%3AHeadType-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The type of the head</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/D-Shwagginz/dfl/blob/854276e25f4c0c754b1aaf5546a8d10afb03b81f/src/D_File/dfl/head.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="type=(type:HeadType)-instance-method">
+      <div class="signature">
+        
+        def <strong>type=</strong>(type : <a href="../DFL/HeadType.html">HeadType</a>)
+
+        <a class="method-permalink" href="#type%3D%28type%3AHeadType%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The type of the head</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/D-Shwagginz/dfl/blob/854276e25f4c0c754b1aaf5546a8d10afb03b81f/src/D_File/dfl/head.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
