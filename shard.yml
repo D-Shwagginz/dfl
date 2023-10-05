@@ -9,10 +9,15 @@ targets:
     main: src/D_File.cr
   write:
     main: src/write.cr
+  cli:
+    main: src/cli/main.cr
 
 dependencies:
   raylib-cr:
     github: sol-vin/raylib-cr
+  clim:
+    github: at-grandpa/clim
+    version: 0.17.1
 
 crystal: 1.9.2
 

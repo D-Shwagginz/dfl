@@ -39,4 +39,5 @@ jobs:
         run: |
           shards build dfl
           shards build write
+          shards build cli
 
