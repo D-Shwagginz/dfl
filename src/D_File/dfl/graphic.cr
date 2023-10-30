@@ -26,6 +26,10 @@ class DFL
     property width : UInt32 = 0_u32
     # The height of the image
     property height : UInt32 = 0_u32
+    # The x offset of the image
+    property x_offset : Int16 = 0_i16
+    # The y offset of the image
+    property y_offset : Int16 = 0_i16
     # The image data
     property data : Array(Color | Nil) = [] of Color | Nil
 
@@ -34,6 +38,9 @@ class DFL
       graphic = Graphic.new
       graphic.width = io.read_bytes(UInt32, IO::ByteFormat::LittleEndian)
       graphic.height = io.read_bytes(UInt32, IO::ByteFormat::LittleEndian)
+
+      graphic.x_offset = io.read_bytes(Int16, IO::ByteFormat::LittleEndian)
+      graphic.y_offset = io.read_bytes(Int16, IO::ByteFormat::LittleEndian)
 
       color_byte_size = io.read_bytes(UInt8, IO::ByteFormat::LittleEndian)
       case color_byte_size

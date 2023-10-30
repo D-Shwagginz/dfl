@@ -7,6 +7,9 @@ module WritingMethods
         io.write_bytes(width.to_u32, IO::ByteFormat::LittleEndian)
         io.write_bytes(height.to_u32, IO::ByteFormat::LittleEndian)
 
+        io.write_bytes(x_offset.to_i16, IO::ByteFormat::LittleEndian)
+        io.write_bytes(y_offset.to_i16, IO::ByteFormat::LittleEndian)
+
         colors = [] of ::DFL::Color
 
         data.each do |color|
