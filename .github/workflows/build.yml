@@ -10,7 +10,7 @@ jobs:
       - name: Install Crystal
         uses: oprypin/install-crystal@v1
       - name: Install Crystal libs
-        run: shards Install
+        run: shards install
       - name: Get raylib-cr for install script
         run: git clone https://github.com/sol-vin/raylib-cr
       - name: run install script
@@ -19,5 +19,4 @@ jobs:
         run: |
           shards build dfl
           shards build write
-          shards build cli
 
